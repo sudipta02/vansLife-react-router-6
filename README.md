@@ -17,9 +17,11 @@ Advanced concepts:
 <br />
 ✅ *index* keyword used to denote the default component to be shown
 <br />
+```
   <Route path="host" element={<HostLayout />}>
     <Route index element={<Dashboard />} />
     <Route path="income" element={<Income />} />
     <Route path="reviews" element={<Reviews />} />
   </Route>
+```
 
