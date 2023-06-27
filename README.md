@@ -1,12 +1,11 @@
-Warning: Vite enforces using jsx syntax inside jsx/tsx files, so it will complain about that. Solution: rename `.js` files to `.jsx` :)
-
 Quick start:
 
 ```
 $ npm install
 $ npm start
 ````
-
-Head over to https://vitejs.dev/ to learn more about using vite
-## About Scrimba
+Advanced concepts:
+👉🏼Nested Routes
+--------------
+✅ When you want to keep displaying some UI in the page, but also want to display more.
 
