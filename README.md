@@ -16,6 +16,7 @@ Advanced concepts:
 ✅ *path* starts with **/** -> absolute path, else -> relative path
 <br />
 ✅ *index* keyword used to denote the default component to be shown
+<br />
 ```
 <Route path="host" element={<HostLayout />}>
   <Route index element={<Dashboard />} />
