@@ -12,3 +12,11 @@ Advanced concepts:
 ✅ When you want to keep displaying some UI in the page, but also want to display more.
 <br />
 ✅ Add <Outlet/> in the Parent element layout to show it's matching children element.
+✅ *path* starts with **/** -> absolute path, else -> relative path
+✅ *index* keyword used to denote the default component to be shown
+  <Route path="host" element={<HostLayout />}>
+    <Route index element={<Dashboard />} />
+    <Route path="income" element={<Income />} />
+    <Route path="reviews" element={<Reviews />} />
+  </Route>
+
