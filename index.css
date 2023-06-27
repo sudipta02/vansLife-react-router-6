@@ -236,6 +236,11 @@ a {
   margin-top: 1rem;
 }
 
+.host-nav {
+  display: flex;
+  justify-content: space-around;
+}
+
 /************UTILITY CLASSES************/
 .go-back {
   display: flex;
