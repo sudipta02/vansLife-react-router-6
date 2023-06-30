@@ -259,6 +259,16 @@ footer {
   color: #161616;
 }
 
+.host-van-item-container{
+  display: flex;
+  background-color: white;
+  /* height: 200px; */
+}
+
+.host-vans-list-container {
+  grid-template-rows: minmax(100px, 1fr);
+}
+
 /************UTILITY CLASSES************/
 .go-back {
   display: flex;
