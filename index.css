@@ -259,14 +259,35 @@ footer {
   color: #161616;
 }
 
-.host-van-item-container{
+.host-van-item-container {
   display: flex;
   background-color: white;
-  /* height: 200px; */
+  height: 150px;
+  gap: 5px;
+  border-radius: 10px;
+}
+
+.host-van-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.host-van-img {
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.host-van-item-container:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.host-van-item-container:last-of-type {
+  margin-bottom: 100px;
 }
 
 .host-vans-list-container {
-  grid-template-rows: minmax(100px, 1fr);
+  padding: 20px;
 }
 
 /************UTILITY CLASSES************/
