@@ -7,7 +7,7 @@ $ npm start
 Advanced concepts:
 <br />
 <br />
-👉🏼Nested Routes
+👉🏼 Nested Routes
 --------------
 ✅ When you want to keep displaying some UI in the page, but also want to display more.
 <br />
@@ -44,4 +44,11 @@ Ans - It's the "default route" we want to render when the path
 of the parent route matches. It gives us a chance to render
 an element inside the parent's <Outlet / > at the same path
 as the parent route.
+
+👉🏼 Query Parameters
+-----------------------
+✅ Reperesent a change in the UI - *Sorting, Filtering, Pagination*
+✅ Used as a single source of truth for certain application state
+    - Ask yourself: "should a user be able to revisit or share this page just like it is?" 
+    If "yes", then you might consider **raising that state up** to the URL in a query parameter.
 
