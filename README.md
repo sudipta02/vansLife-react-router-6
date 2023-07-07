@@ -48,6 +48,7 @@ as the parent route.
 👉🏼 Query Parameters
 -----------------------
 ✅ Reperesent a change in the UI - *Sorting, Filtering, Pagination*
+<br />
 ✅ Used as a single source of truth for certain application state
     - Ask yourself: "should a user be able to revisit or share this page just like it is?" 
     If "yes", then you might consider **raising that state up** to the URL in a query parameter.
