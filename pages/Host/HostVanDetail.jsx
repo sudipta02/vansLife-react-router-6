@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Outlet, NavLink } from "react-router-dom";
 import LeftArrowIcon from "../../ui-elements/LeftArrowIcon";
 
-export default function VanDetail() {
+export default function HostVanDetail() {
   const [vanDetail, setVanDetail] = useState({});
   const navigate = useNavigate();
   const params = useParams();
 
   useEffect(() => {
     const dataFetch = async () => {
-      await fetch(`/api/vans/${params.id}`)
+      await fetch(`/api/host/vans/${params.id}`)
         .then((res) => res.json())
         .then((result) => setVanDetail(result.vans));
     };
@@ -20,21 +20,67 @@ export default function VanDetail() {
 
   return (
     <>
-      <div className="van-details-container">
-        <button onClick={() => navigate(-1)} style={{ marginBottom: "1rem" }}>
-          <div className="go-back">
-            <LeftArrowIcon width={"1.5rem"} height={"1.5rem"} /> <p>Go back</p>
+      <button
+        onClick={() => navigate(-1)}
+        style={{ marginBottom: "1rem", marginLeft: "20px" }}
+      >
+        <div className="go-back">
+          <LeftArrowIcon width={"1.5rem"} height={"1.5rem"} /> <p>Go back</p>
+        </div>
+      </button>
+      <div
+        style={{
+          backgroundColor: "white",
+          margin: "20px",
+          borderRadius: "10px",
+        }}
+      >
+        <div className="host-van-details-container">
+          <img src={imageUrl} className="host-van-detail-image" />
+          <div style={{ marginLeft: "20px", alignSelf: "center" }}>
+            <p className={type} style={{ marginTop: ".75rem" }}>
+              {type}
+            </p>
+            <h2 style={{ marginTop: ".75rem" }}>{name}</h2>
+            <p style={{ marginTop: ".75rem" }}>₹{price}/day</p>
           </div>
-        </button>
-        <img src={imageUrl} className="van-image" />
-        <p className={type} style={{ marginTop: ".75rem" }}>
-          {type}
-        </p>
-        <h2 style={{ marginTop: ".75rem" }}>{name}</h2>
-        <p style={{ marginTop: ".75rem" }}>₹{price}/day</p>
-        <p style={{ marginTop: ".75rem" }}>{description}</p>
-        <button className="primary-btn">Rent this van</button>
+        </div>
+        <HostLayout />
+        <Outlet context={[imageUrl, type, name, price, description]} />
       </div>
+    </>
+  );
+}
+
+function HostLayout() {
+  const activeLinkStyle = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616",
+  };
+  return (
+    <>
+      <nav className="host-nav">
+        <NavLink
+          to="."
+          end
+          style={({ isActive }) => (isActive ? activeLinkStyle : null)}
+        >
+          Details
+        </NavLink>
+        <NavLink
+          to="pricing"
+          style={({ isActive }) => (isActive ? activeLinkStyle : null)}
+        >
+          Pricing
+        </NavLink>
+        <NavLink
+          to="photos"
+          style={({ isActive }) => (isActive ? activeLinkStyle : null)}
+        >
+          Photos
+        </NavLink>
+      </nav>
     </>
   );
 }

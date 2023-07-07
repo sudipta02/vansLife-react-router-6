@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function HostVans() {
   const [hostVans, setHostVans] = useState([]);
@@ -11,25 +12,28 @@ export default function HostVans() {
     dataFetch();
   }, []);
 
-  const HostVan = ({ name, price, imageUrl }) => {
+  const HostVan = ({ name, price, imageUrl, id }) => {
     return (
-      <div className="host-van-item-container">
-        <img src={imageUrl} className="host-van-img" />
-        <div className="host-van-info">
-          <p style={{ fontWeight: "bold" }}>{name}</p>
-          <p>₹{price}/day</p>
+      <Link to={`/host/vans/${id}`}>
+        <div className="host-van-item-container">
+          <img src={imageUrl} className="host-van-img" />
+          <div className="host-van-info">
+            <p style={{ fontWeight: "bold" }}>{name}</p>
+            <p>₹{price}/day</p>
+          </div>
         </div>
-      </div>
+      </Link>
     );
   };
+
   return (
     <>
       <h1 style={{ paddingLeft: "20px", marginBottom: "0", marginTop: "30px" }}>
         Your listed vans
       </h1>
       <div className="host-vans-list-container">
-        {hostVans.map(({ name, price, imageUrl }) => (
-          <HostVan price={price} name={name} imageUrl={imageUrl} />
+        {hostVans.map(({ name, price, imageUrl, id }) => (
+          <HostVan price={price} name={name} imageUrl={imageUrl} id={id} />
         ))}
       </div>
     </>

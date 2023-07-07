@@ -283,11 +283,29 @@ footer {
 }
 
 .host-van-item-container:last-of-type {
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 
 .host-vans-list-container {
   padding: 20px;
+}
+
+.host-van-detail-image {
+  width: 200px;
+  border-radius: 5px;
+}
+
+.host-van-details-container {
+  padding: 20px;
+  display: flex;
+}
+
+.host-van-detail-route {
+  /* width: 25%; */
+  margin-top: 20px;
+  margin-left: 20px;
+  display: grid;
+  gap: 10px;
 }
 
 /************UTILITY CLASSES************/
