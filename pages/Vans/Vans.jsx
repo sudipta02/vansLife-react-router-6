@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-/**
- * Challenge: Fetch and map over the data to display it on
- * the vans page. For an extra challenge, spend time styling
- * it to look like the Figma design.
- *
- * Hints:
- * 1. Use `fetch(/api/vans)` to kick off the request to get the
- *    data from our fake Mirage JS server
- * 2. What React hook would you use to fetch data as soon as the
- *    Vans page loads, and only fetch it the one time?
- * 3. You may get an error saying "console.groupCollapsed is not
- *    a function". You can ignore it for now.
- */
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilter = searchParams.get("type");
+
   useEffect(() => {
     const dataFetch = async () => {
       await fetch("/api/vans")
@@ -24,6 +14,10 @@ export default function Vans() {
     };
     dataFetch();
   }, []);
+
+  const displayedVans = typeFilter
+    ? vans.filter((van) => van.type === typeFilter)
+    : vans;
 
   const Van = ({ id, name, price, imageUrl, type }) => {
     return (
@@ -47,8 +41,31 @@ export default function Vans() {
   return (
     <>
       <h1 className="van-items-title">Explore our van options</h1>
+      <div style={{ marginLeft: "20px" }}>
+        <button
+          className="van-filter simple"
+          onClick={() => setSearchParams({ type: "simple" })}
+        >
+          simple
+        </button>
+        <button
+          className="van-filter rugged"
+          onClick={() => setSearchParams({ type: "rugged" })}
+        >
+          rugged
+        </button>
+        <button
+          className="van-filter luxury"
+          onClick={() => setSearchParams({ type: "luxury" })}
+        >
+          luxury
+        </button>
+        <button className="clear-filter" onClick={() => setSearchParams({})}>
+          Clear filters
+        </button>
+      </div>
       <div className="vans-container">
-        {vans.map((van) => {
+        {displayedVans.map((van) => {
           const { name, price, description, imageUrl, type, id } = van;
           return (
             <Van

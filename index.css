@@ -213,6 +213,40 @@ header a:hover {
   line-height: 25px;
 }
 
+.van-filter {
+  display: inline-block;
+  background: #FFEAD0;
+  border-radius: 5px;
+  color: gray;
+  width: 80px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  margin-right: 20px;
+  border: none;
+}
+
+.clear-filter {
+  border: none;
+  background: none;
+  border-bottom: 1px solid #4d4d4d;
+}
+
+button[class~="simple"]:hover {
+  background: #e17654;
+  color: #fff7ed;
+}
+
+button[class~="rugged"]:hover {
+  background: #115e59;;
+  color: #fff7ed;
+}
+
+button[class~="luxury"]:hover {
+  background: #161616;;
+  color: #ffcc8d;
+}
+
 .van-items-title {
   padding-left: 20px;
 }
