@@ -14,7 +14,7 @@ export default function HostVans() {
 
   const HostVan = ({ name, price, imageUrl, id }) => {
     return (
-      <Link to={`/host/vans/${id}`}>
+      <Link to={id}>
         <div className="host-van-item-container">
           <img src={imageUrl} className="host-van-img" />
           <div className="host-van-info">

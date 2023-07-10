@@ -232,18 +232,18 @@ header a:hover {
   border-bottom: 1px solid #4d4d4d;
 }
 
-button[class~="simple"]:hover {
+button[class~="simple"]:hover, button.simple.selected {
   background: #e17654;
   color: #fff7ed;
 }
 
-button[class~="rugged"]:hover {
-  background: #115e59;;
+button[class~="rugged"]:hover, button.rugged.selected {
+  background: #115e59;
   color: #fff7ed;
 }
 
-button[class~="luxury"]:hover {
-  background: #161616;;
+button[class~="luxury"]:hover, button.luxury.selected {
+  background: #161616;
   color: #ffcc8d;
 }
 
