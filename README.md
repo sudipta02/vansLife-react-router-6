@@ -53,3 +53,17 @@ as the parent route.
     - Ask yourself: "should a user be able to revisit or share this page just like it is?" 
     If "yes", then you might consider **raising that state up** to the URL in a query parameter.
 
+👉🏼 Storing state in links
+------------------------------
+-> Store state in Links
+<br />
+```
+<Link to={id} state={{ search: `?${searchParams.toString()}`, type: typeFilter }} ></Link>
+```
+-> Use `useLocation()` hook to retrieve the state values
+<br />
+```
+const searchLinkState = location.state?.search || "";
+const typeLinkState = location.state?.type || "all";
+```
+
