@@ -60,7 +60,7 @@ as the parent route.
 ```
 <Link to={id} state={{ search: `?${searchParams.toString()}`, type: typeFilter }} ></Link>
 ```
--> Use `useLocation()` hook to retrieve the state values
+-> Use `useLocation()` hook to access the state values
 <br />
 ```
 const searchLinkState = location.state?.search || "";
