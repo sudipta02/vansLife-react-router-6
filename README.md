@@ -80,3 +80,15 @@ const typeLinkState = location.state?.type || "all";
   * Define and export a loader function
   * Import the loader and pass it to the route we' re wanting to fetch data for
   * Use the useLoaderData() hook to get the data from the loader function.
+
+👉🏼 Protected Routes:
+--------------------------
+Preventing renders
+Approach: If user isn't logged in, stop data fetching by blocking components from rendering and send to the Login page. Since fetching is happening inside the components, if those components never render, the fetching never happens.
+Quiz -
+1. How did we change our route definitions in order to "protect" certain routes from an user?
+  Ans -Wrapped the routes we wanted to protect in a Layout route that contains logic to redi rect someone if they' re not logged in.
+2. What component can we use to automatically send someone to a different route in our app?
+  Ans - <Navigate to="login"/>
+3. What component can we render if the user IS logged in?
+  Ans - <OutIet/>
