@@ -5,10 +5,10 @@ import Footer from "./Footer";
 
 export default function Layout() {
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
