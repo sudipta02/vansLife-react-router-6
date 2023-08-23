@@ -92,3 +92,8 @@ Quiz -
   Ans - <Navigate to="login"/>
 3. What component can we render if the user IS logged in?
   Ans - <OutIet/>
+
+Loader redirect()
+Approach: If user isn't logged in, redirect to Login page when protected route loaders run, before any route rendering happens.
+Downside of this approach : needs to happen in every protected route's loader.
+Better approach: Use middlewares to intercept the route.
