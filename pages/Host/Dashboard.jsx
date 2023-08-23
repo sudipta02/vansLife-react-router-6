@@ -5,7 +5,6 @@ export default function Dashboard() {
   return (
     <>
       <h1>This is Dashboard component</h1>
-      <Outlet />
     </>
   );
 }

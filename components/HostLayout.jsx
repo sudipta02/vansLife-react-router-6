@@ -8,7 +8,7 @@ export default function HostLayout() {
     color: "#161616",
   };
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <nav className="host-nav">
         <NavLink
           to="."
@@ -37,6 +37,6 @@ export default function HostLayout() {
         </NavLink>
       </nav>
       <Outlet />
-    </>
+    </div>
   );
 }
