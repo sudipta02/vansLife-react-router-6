@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../api";
+
+export function loader() {
+  return getHostVans();
+}
 
 export default function HostVans() {
-  const [hostVans, setHostVans] = useState([]);
-  useEffect(() => {
-    const dataFetch = async () => {
-      await fetch("/api/host/vans")
-        .then((res) => res.json())
-        .then((result) => setHostVans(result.vans));
-    };
-    dataFetch();
-  }, []);
+  const hostVans = useLoaderData();
 
   const HostVan = ({ name, price, imageUrl, id }) => {
     return (

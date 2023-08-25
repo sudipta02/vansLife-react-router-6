@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, Outlet, NavLink } from "react-router-dom";
+import {
+  useParams,
+  useNavigate,
+  Outlet,
+  NavLink,
+  useLoaderData,
+} from "react-router-dom";
 import LeftArrowIcon from "../../ui-elements/LeftArrowIcon";
+import { getHostVans } from "../../api";
+
+export function loader({ params }) {
+  return getHostVans(params.id);
+}
 
 export default function HostVanDetail() {
-  const [vanDetail, setVanDetail] = useState({});
+  const vanDetail = useLoaderData();
   const navigate = useNavigate();
-  const params = useParams();
-
-  useEffect(() => {
-    const dataFetch = async () => {
-      await fetch(`/api/host/vans/${params.id}`)
-        .then((res) => res.json())
-        .then((result) => setVanDetail(result.vans));
-    };
-    dataFetch();
-  }, [params.id]);
+  debugger;
 
   const { imageUrl = null, type = null, name, price, description } = vanDetail;
 
