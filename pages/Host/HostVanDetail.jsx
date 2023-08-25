@@ -8,8 +8,10 @@ import {
 } from "react-router-dom";
 import LeftArrowIcon from "../../ui-elements/LeftArrowIcon";
 import { getHostVans } from "../../api";
+import { requireAuth } from "../../utils";
 
-export function loader({ params }) {
+export async function loader({ params }) {
+  await requireAuth();
   return getHostVans(params.id);
 }
 
